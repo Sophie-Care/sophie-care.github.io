@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sophie Bungey Counselling</title>
+
+  <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Questrial&display=swap" rel="stylesheet">
+
+  <!-- ScrollReveal Library -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+ <style>
+
+  html, body {
+
+}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6, nav a {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    background: #fefcf8;
+    padding-top: 5px;
+    scroll-behavior: smooth;
+  }
+.sticky-nav {
+  background: pink;
+}
+  nav {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+.nav-logo {
+  height: 40px;
+  margin-right: 1rem;
+  opacity: 1;
+  transform: none;
+}
+
+  nav.scrolled .nav-logo {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #444;
+    font-family: 'Barlow', sans-serif;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: #d8aac3;
+  }
+.burger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Nav container for links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  nav {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    position: sticky;
+  }
+}
+
+section {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  padding: 2rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem; /* Slightly less side padding on mobile */
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    margin-bottom: 6rem;
+    padding: 4rem 2rem;
+  }
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-name {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #91c4d8;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .brand-name {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+ .hero {
+  background: url('./images/rainbow-bg.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 8rem 2rem 4rem 2rem;
+  width: 100%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin: auto;
+  gap: 6rem;
+  padding: 0;
+  align-items: center;
+}
+
+.hero-left img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero-right {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.hero-right .quote {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 0 2rem 0;
+  }
+
+  .hero-grid {
+    display: block;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .hero-left {
+    margin-bottom: 2rem;
+  }
+
+  .hero-right {
+    font-size: 1rem;
+  }
+}
+
+/* Optional: prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+  .badge {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .badge img {
+    max-width: 150px;
+    height: auto;
+  }
+
+  #specialties {
+    background-color: #fed2ea;
+    padding: 4rem 2rem;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .specialties-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .specialty h2 {
+    margin-bottom: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #000;
+    text-transform: uppercase;
+  }
+
+  .specialty h3 {
+    margin-bottom: 0.5rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #000;
+  }
+
+  .specialty p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Responsive: stack specialties on small screens */
+  @media (max-width: 768px) {
+    .specialties-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+</style>
+
+</head>
+<body>
+
+<nav class="sticky-nav">
+  <div class="nav-brand">
+    <img src="assets/rainbow-logo.png" alt="Logo" class="nav-logo">
+    <span class="brand-name">Sophie Bungey Counselling</span>
+  </div>
+  <button class="burger" aria-label="Menu">&#9776;</button>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#specialties">Specialties</a>
+    <a href="#about">About Counselling</a>
+    <a href="#qualifications">Qualifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+
+  <section id="home" class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <img src="assets/sophie.jpg" alt="Sophie Bungey">
+    </div>
+    <div class="hero-right">
+      <p class="quote">
+        "Rarely, if ever, are any of us healed in isolation. <br>
+        Healing is an act of communion"<br>
+        – bell hooks, <em>All About Love</em>
+      </p>
+      <p>Sophie (she/her) is a fully qualified, body-positive, LGBTQIA+ inclusive, neurodivergent affirming counsellor.</p>
+     <br>
+      <p>Sophie offers a judgement and shame-free space for you to talk through your thoughts and feelings.</p>
+    </div>
+  </div>
+</section>
+<section id="specialties">
+    <div class="container">
+  <h2 style="text-transform: uppercase; letter-spacing: 0.05em;">Specialties</h2>
+  <div class="specialties-grid">
+    <div class="specialty">
+      <h3>Online Counselling</h3>
+      <p>Sophie offers online individual counselling.</p>
+      <p>Sophie will be able to meet you online for 50 minute sessions. These are tailored to your specific needs and provide a safe space for self-exploration and growth.</p>
+    </div>
+    <div class="specialty">
+      <h3>Face to Face Counselling</h3>
+      <p>Sophie will soon be able to offer face to face sessions in a private, safe and comfortable space.</p>
+    </div>
+    <div class="specialty">
+      <h3>Creative Counselling</h3>
+      <p>Sophie will provide a space to use creativity in counselling, including art and music.</p>
+      <p>If you want to stim, sketch, or move during sessions, that is absolutely fine.</p>
+      <p>Sophie focuses on self-acceptance rather than conformity.</p>
+    </div>
+    <div class="specialty">
+      <h3>LGBTQIA+</h3>
+      <p>Sophie is an ally in the LGBTQIA+ community and will treat all people, no matter what their gender identity or sexuality, with kindness and compassion. Trans Lives Matter.</p>
+    </div>
+    <div class="specialty">
+      <h3>Neurodivergent Affirming</h3>
+      <p>Sophie respects, values, and supports neurodivergent people. 'Neurodivergent' is a term which describes people whose brains function differently from what is considered 'neurotypical'.</p>
+      <p>This can include autism, ADHD, dyslexia, dyspraxia, Tourette's and other cognitive and neurological variations.</p>
+    </div>
+    <div class="specialty">
+      <h3>An Inclusive and Safe Space</h3>
+      <p>Sophie is a body-positive therapist who accepts all body shapes, sizes, and appearances.</p>
+      <p>All bodies are worthy of care, respect, and love, no matter the size.</p>
+      <p>Sophie offers a shame-free environment where you can talk openly about body image issues, disordered eating, trauma related to body or appearance, and self-worth.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+ <section id="about">
+  <div class="container">
+    <h2 style="text-transform: uppercase; letter-spacing: 0.05em;">What is Counselling?</h2>
+
+    <p>Counselling is a professional, collaborative process where a trained person (a counsellor or therapist) helps a person explore and manage personal, emotional, psychological, or behavioural issues. It provides a safe, confidential space for people to talk about their feelings, thoughts, and challenges without judgement.</p>
+
+    <ul style="margin-top: 1.5rem; margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.6;">
+      <li><strong>Confidentiality:</strong> What you share stays private (within legal and ethical limits).</li>
+      <li><strong>Non-judgemental support:</strong> The counsellor offers empathy, understanding, and respect.</li>
+      <li><strong>Goal-oriented:</strong> It may help you improve mental health, resolve conflict, make decisions, or cope with difficult life events.</li>
+      <li><strong>Voluntary participation:</strong> The process is typically based on the client’s willingness and readiness to engage.</li>
+    </ul>
+
+    <h3 style="margin-top: 2.5rem;">Common Issues Addressed in Counselling:</h3>
+    <ul style="margin-top: 1rem; padding-left: 1.5rem; line-height: 1.6;">
+      <li>Anxiety or depression</li>
+      <li>Relationship issues</li>
+      <li>Stress and burnout</li>
+      <li>Grief and loss</li>
+      <li>Self-esteem or identity issues</li>
+      <li>Trauma or abuse</li>
+      <li>Life transitions (e.g., divorce, job change)</li>
+    </ul>
+
+    <h3 style="margin-top: 2.5rem;">Beginning the Counselling Journey</h3>
+    <p>Sophie understands how difficult it can be to start something new – that's why she offers a free 15-minute phone consultation.</p>
+    <p>This gives you the opportunity to explore your counselling needs, ask any questions about the process, and learn more about fees and policies.</p>
+
+    <h3 style="margin-top: 2.5rem;">Counselling Sessions</h3>
+    <p>If you decide you'd like to meet Sophie for counselling sessions, these will be held on a weekly basis.</p>
+    <p>Right now, sessions are conducted online via Zoom.</p>
+  </div>
+</section>
+
+
+<section id="qualifications" style="background-color: #fed2ea;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto;">
+    <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Barlow', sans-serif; font-size: 2rem; margin-bottom: 2rem;">Sophie's Qualifications</h2>
+
+    <div class="qualification-section" style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+      <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif;">
+        CPCAB QUALIFICATIONS
+      </div>
+      <div style="flex: 2;">
+        <p>Level 5 Diploma in Counselling Young People (will complete in Summer 2025)</p>
+        <p>Level 4 Diploma in Therapeutic Counselling</p>
+        <p>Level 3 Certificate in Counselling Studies</p>
+        <p>Level 2 Certificate in Counselling Skills</p>
+      </div>
+    </div>
+
+    <div class="qualification-section" style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+      <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif;">
+        CPD<br>
+        <span style="font-weight: normal; font-size: 0.95rem;">Continued Professional Development</span>
+      </div>
+      <div style="flex: 2;">
+        <p>Breaking County Lines and Cuckooing, May 2025</p>
+        <p>Case Notes and Disclosures, February 2025</p>
+        <p>Working with Trauma, November 2024</p>
+        <p>Working with Neurodiverse Clients, July 2024</p>
+        <p>Vulnerability and Feedback, June 2024</p>
+        <p>Universal Safeguarding Children Online Training, October 2023</p>
+        <p>SP-PEAK Suicide Prevention Training, May 2023</p>
+      </div>
+    </div>
+
+    <div class="qualification-section" style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+      <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif;">
+        COUNSELLING EXPERIENCE
+      </div>
+      <div style="flex: 2;">
+        <p>Sophie has over 180 hours of counselling experience – working with adults and young people, both online and face to face.</p>
+      </div>
+    </div>
+
+
+<div class="qualification-section" style="display: flex; gap: 2rem; align-items: center;">
+  <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif;">
+    PROFESSIONAL MEMBERSHIP
+  </div>
+  <div style="flex: 2;">
+    <img src="assets/bacp.jpg" alt="BACP Badge" style="width: 150px; max-width: 100%; height: auto;">
+  </div>
+</div>
+
+</div>  
+</section>
+<section id="contact" style="padding: 4rem 2rem;">
+  <div class="container" style="max-width: 800px; margin: 0 auto;">
+    <h2 style="text-transform: uppercase; letter-spacing: 0.15em; font-family: 'Barlow', sans-serif; font-size: 2rem; border-bottom: 1px solid #999; padding-bottom: 0.5rem;">Contact Sophie</h2>
+
+    <div style="margin-top: 2rem; line-height: 1.7; font-size: 1rem;">
+      <p>Ready to take the first step?</p>
+      <p>Contact Sophie today to schedule a free 15 minute consultation. This can happen either online or on the phone.</p>
+      <p>Sophie is here to listen, support, and guide you on your journey towards emotional well-being.</p>
+    </div>
+
+    <div style="margin-top: 3rem;">
+      <p style="letter-spacing: 0.2em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem;">Phone</p>
+      <p style="margin-bottom: 1.5rem;"><strong>TBC</strong></p>
+
+      <p style="letter-spacing: 0.2em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem;">Location</p>
+      <p>Online<br>Phone</p>
+      <p style="margin-bottom: 1.5rem;"><strong>Face-to-face appointments will soon be available</strong></p>
+
+      <p style="letter-spacing: 0.2em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem;">E-mail</p>
+      <p><a href="mailto:info@sophiebungeycounselling.com">info@sophiebungeycounselling.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer style="background: #fefcf8; padding: 1rem 0; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #eaeaea;">
+  <p>&copy; 2025 Sophie Bungey Counselling • All rights reserved</p>
+</footer>
+
+
+<script>
+  // Reveal animation
+  ScrollReveal().reveal('section', {
+    distance: '40px',
+    duration: 1000,
+    easing: 'ease-out',
+    origin: 'bottom',
+    interval: 200
+  });
+
+  // Smooth scroll with offset
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Sticky nav scroll behaviour
+  const stickyNav = document.querySelector('.sticky-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      stickyNav.classList.add('scrolled');
+    } else {
+      stickyNav.classList.remove('scrolled');
+    }
+  });
+
+// Burger menu toggle
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Close burger menu when a link is clicked (mobile UX)
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+</script>
+
+
+</body>
+</html>

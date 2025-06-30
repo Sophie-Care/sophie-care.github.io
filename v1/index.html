@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sophie Bungey Counselling</title>
+<link rel="icon" type="image/png" href="assets/favicon-48.png">
 
   <!-- Google Fonts -->
    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Questrial&display=swap" rel="stylesheet">
-
   <!-- ScrollReveal Library -->
   <script src="https://unpkg.com/scrollreveal"></script>
 
@@ -40,7 +40,7 @@
 .sticky-nav {
   background: pink;
     flex-wrap: wrap;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
   nav {
     position: sticky;
@@ -57,8 +57,18 @@
 .nav-logo {
   height: 40px;
   margin-right: 1rem;
-  opacity: 1;
-  transform: none;
+    opacity: 0;
+  transform: translateY(30px);
+  animation: logoFadeSlide 1.5s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes logoFadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
 
   nav.scrolled .nav-logo {
@@ -77,7 +87,7 @@
   }
 
   nav a:hover {
-    color: #d8aac3;
+    color: #facfcd;
   }
 .burger {
   display: none;
@@ -91,7 +101,7 @@
 /* Nav container for links */
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.52rem;
   align-items: center;
 }
 
@@ -127,24 +137,26 @@
 
 .nav-brand {
   display: flex;
-  align-items: center;
-  gap: 0.2rem;
+  align-items: left;
+  gap: 0.05rem;
     flex-shrink: 1;
   min-width: 0;
 }
 
 .brand-name {
   font-family: 'Barlow', sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1rem;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #91c4d8;
+  color: #5caac5;
   white-space: nowrap;
     white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
+    transform: translateY(2px); /* Adjust this as needed */
+    margin-left: -0.2rem;
+
 }
 
 @media (max-width: 768px) {
@@ -153,7 +165,7 @@
   }
 
   .sticky-nav {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
   }
 
   .nav-links {
@@ -161,18 +173,19 @@
   }
 
   .brand-name {
-    font-size: 0.9rem;
+    font-size: 1.02rem;
+    margin-left: -0.2rem;
   }
 }
 section {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 3rem auto;
   padding: 2rem 1.5rem;
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 2rem 1rem; /* Slightly less side padding on mobile */
+    padding: 2rem 2rem; /* Slightly less side padding on mobile */
     margin-bottom: 2rem;
   }
 }
@@ -185,24 +198,21 @@ section {
 }
 
 
-
-
-
- .hero {
-  background: url('./images/rainbow-bg.jpg') no-repeat center center;
+.hero-background {
+  background: url('assets/pastel_background.png') no-repeat center top;
   background-size: cover;
-  padding: 8rem 2rem 4rem 2rem;
+  padding: 2rem -0.5rem;
   width: 100%;
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 100%;
-  margin: auto;
-  gap: 6rem;
-  padding: 0;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
   align-items: center;
+    padding: 0;
 }
 
 .hero-left img {
@@ -223,28 +233,42 @@ section {
   margin-bottom: 1.5rem;
   color: #555;
 }
+.text-box {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(2px);
+   width: 100%;
+  max-width: 400px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
 /* Mobile styles */
 @media (max-width: 768px) {
   .hero {
-    padding: 4rem 0 2rem 0;
+  padding: 0.5rem 2rem;
   }
 
   .hero-grid {
-    display: block;
-    text-align: center;
-    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem; /* less padding */
+    gap: 1.5rem; /* smaller spacing between image/text */
   }
-
+}
   .hero-left {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .hero-right {
     font-size: 1rem;
   }
-}
 
+  .text-box {
+    padding: 1.25rem 1rem;
+  }
 /* Optional: prevent horizontal scroll */
 body {
   overflow-x: hidden;
@@ -261,7 +285,7 @@ body {
   }
 
   #specialties {
-    background-color: #fed2ea;
+    background-color: #facfcd;
     padding: 4rem 2rem;
     width: 100%;
   }
@@ -318,7 +342,7 @@ body {
   text-align: center;
   text-decoration: none;
   border-radius: 30px;
-  background: linear-gradient(90deg, #f5c6d6, #d2d2f2);
+  background: linear-gradient(90deg, #facfcd, #d2d2f2);
   color: #444;
   box-shadow: 0 3px 6px rgba(0,0,0,0.08);
   transition: all 0.2s ease;
@@ -397,9 +421,9 @@ body {
 <nav class="sticky-nav">
   <div class="nav-brand">
     <img src="assets/rainbow-logo.png" alt="Logo" class="nav-logo">
-    <span class="brand-name">Sophie Bungey Counselling</span>
+    <span class="brand-name">Sophie Bungey <span style=" text-transform:uppercase; color: #facfcd;">Counselling</span></span>
   </div>
-  <button class="burger" aria-label="Menu">&#9776;</button>
+  <button class="burger" style="color:#b6b6d4" aria-label="Menu">&#9776;</button>
   <div class="nav-links">
     <a href="#home">Home</a>
     <a href="#specialties">Specialties</a>
@@ -409,13 +433,14 @@ body {
   </div>
 </nav>
 
-
-  <section id="home" class="hero">
+<div class="hero-background">
+  <section id="home" class="">
   <div class="hero-grid">
     <div class="hero-left">
-      <img src="assets/sophie.jpg" alt="Sophie Bungey">
+      <img style="display:block; width:100%" src="assets/sophie.jpg" alt="Sophie Bungey">
     </div>
     <div class="hero-right">
+       <div class="text-box">
       <p class="quote">
         "Rarely, if ever, are any of us healed in isolation. <br>
         Healing is an act of communion"<br>
@@ -425,11 +450,13 @@ body {
      <br>
       <p>Sophie offers a judgement and shame-free space for you to talk through your thoughts and feelings.</p>
     </div>
+    </div>
   </div>
 </section>
+</div>
 <section id="specialties">
     <div class="container">
-  <h2 style="text-transform: uppercase; letter-spacing: 0.05em;">Specialties</h2>
+  <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem">Specialties</h2>
   <div class="specialties-grid">
     <div class="specialty">
       <h3>Online Counselling</h3>
@@ -468,8 +495,8 @@ body {
 
  <section id="about">
   <div class="container">
-    <h2 style="text-transform: uppercase; letter-spacing: 0.05em;">What is Counselling?</h2>
-
+    <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem">What is Counselling?</h2>
+<br>
     <p>Counselling is a professional, collaborative process where a trained person (a counsellor or therapist) helps a person explore and manage personal, emotional, psychological, or behavioural issues. It provides a safe, confidential space for people to talk about their feelings, thoughts, and challenges without judgement.</p>
 
     <ul style="margin-top: 1.5rem; margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.6;">
@@ -501,10 +528,10 @@ body {
 </section>
 
 
-<section id="qualifications" style="background-color: #fed2ea;">
+<section id="qualifications" style="background-color: #facfcd;">
   <div class="container">
-    <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Barlow', sans-serif; font-size: 2rem; margin-bottom: 2rem;">Sophie's Qualifications</h2>
-
+    <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem">Sophie's Qualifications</h2>
+<br>
     <div class="qualification-section" style="display: flex; gap: 2rem; margin-bottom: 2rem;">
       <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif;">
         CPCAB QUALIFICATIONS
@@ -581,7 +608,7 @@ body {
       <div class="contact-item">
         <!-- Location icon -->
         <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="#f5c6d6" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#facfcd" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
           </svg>
         </span>
@@ -599,23 +626,49 @@ body {
           </svg>
         </span>
         <div>
-          <p class="label">Email</p>
-          <p><a href="mailto:info@sophiebungeycounselling.com" style="color: #91c4d8; text-decoration: underline; font-weight: 500;">info@sophiebungeycounselling.com</a></p>
+          <p class="label">Get in touch</p>
+          <!-- <p><a href="mailto:info@sophiebungeycounselling.com" style="color: #91c4d8; text-decoration: underline; font-weight: 500;">info@sophiebungeycounselling.com</a></p>
           <p style="font-size: 0.85rem; font-style: italic; color: #666; margin-top: 1rem;">
   Emails are sent directly and not stored by this website. Your message will be handled confidentially.
-</p>
+</p> -->
+<div style="margin-top: 1rem;">
+  <form action="mailto:hello@sophie.care" method="POST" enctype="text/plain" style="display: grid; gap: 1rem;">
 
+    <label>
+      Your Name<br>
+      <input type="text" name="Name" required style="padding: 0.5rem; width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+    </label>
+
+    <label>
+      Your Email<br>
+      <input type="email" name="Email" required style="padding: 0.5rem; width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+    </label>
+
+    <label>
+      Message<br>
+      <textarea name="Message" rows="5" required style="padding: 0.5rem; width: 100%; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+    </label>
+
+    <button type="submit"  class="soft-button" style="padding: 0.75rem 1.5rem; background-color: #91c4d8; border: none; color: black; font-weight: bold; text-transform: uppercase; border-radius: 4px; cursor: pointer;">
+      Send Message
+    </button>
+  </form>
+
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;"><i>
+    By clicking 'Send Message', your email client will open and populate a message to Sophie. Your information is not stored or shared with any third parties.
+ </i> </p>
+</div>
         </div>
       </div>
     </div>
 
-    <div class="contact-button">
+    <!-- <div class="contact-button">
       <a href="#contact" class="soft-button">Get in Touch</a>
     </div>
-  </div>
+  </div> -->
 </section>
 
-<footer style="background: #fefcf8; padding: 1rem 0; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #eaeaea;">
+<footer style="background: #facfcd; padding: 1rem 0; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #eaeaea;">
   <p>&copy; 2025 Sophie Bungey Counselling • All rights reserved</p>
 </footer>
 

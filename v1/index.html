@@ -39,6 +39,8 @@
   }
 .sticky-nav {
   background: pink;
+    flex-wrap: wrap;
+  overflow-x: hidden;
 }
   nav {
     position: sticky;
@@ -123,6 +125,45 @@
   }
 }
 
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+    flex-shrink: 1;
+  min-width: 0;
+}
+
+.brand-name {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #91c4d8;
+  white-space: nowrap;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .nav-logo {
+    height: 30px;
+  }
+
+  .sticky-nav {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  .brand-name {
+    font-size: 0.9rem;
+  }
+}
 section {
   max-width: 800px;
   margin: 0 auto 3rem auto;
@@ -143,27 +184,7 @@ section {
   }
 }
 
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
 
-.brand-name {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #91c4d8;
-  white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  .brand-name {
-    font-size: 1.2rem;
-  }
-}
 
 
 
@@ -289,6 +310,85 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+.soft-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #f5c6d6, #d2d2f2);
+  color: #444;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  font-family: 'Barlow', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.soft-button:hover {
+  background: linear-gradient(90deg, #f3bccc, #c5c5f0);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+.contact-section {
+  padding: 4rem 2rem;
+  background: #fefcf8;
+}
+
+.contact-section h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: 'Barlow', sans-serif;
+  font-size: 2rem;
+  border-bottom: 1px solid #999;
+  padding-bottom: 0.5rem;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.contact-intro {
+  text-align: left;
+  line-height: 1.7;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.icon svg {
+  min-width: 24px;
+  height: 24px;
+}
+
+.label {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-family: 'Barlow', sans-serif;
+  color: #444;
+}
+
+.contact-button {
+  text-align: center;
+  margin-top: 3rem;
+}
+
 </style>
 
 </head>
@@ -391,18 +491,18 @@ body {
     </ul>
 
     <h3 style="margin-top: 2.5rem;">Beginning the Counselling Journey</h3>
-    <p>Sophie understands how difficult it can be to start something new – that's why she offers a free 15-minute phone consultation.</p>
+    <p>Sophie understands how difficult it can be to start something new – that's why she offers a free 15-minute phone consultation.</p><br>
     <p>This gives you the opportunity to explore your counselling needs, ask any questions about the process, and learn more about fees and policies.</p>
 
     <h3 style="margin-top: 2.5rem;">Counselling Sessions</h3>
-    <p>If you decide you'd like to meet Sophie for counselling sessions, these will be held on a weekly basis.</p>
+    <p>If you decide you'd like to meet Sophie for counselling sessions, these will be held on a weekly basis.</p><br>
     <p>Right now, sessions are conducted online via Zoom.</p>
   </div>
 </section>
 
 
 <section id="qualifications" style="background-color: #fed2ea;">
-  <div class="container" style="max-width: 1000px; margin: 0 auto;">
+  <div class="container">
     <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Barlow', sans-serif; font-size: 2rem; margin-bottom: 2rem;">Sophie's Qualifications</h2>
 
     <div class="qualification-section" style="display: flex; gap: 2rem; margin-bottom: 2rem;">
@@ -454,26 +554,63 @@ body {
 
 </div>  
 </section>
-<section id="contact" style="padding: 4rem 2rem;">
-  <div class="container" style="max-width: 800px; margin: 0 auto;">
-    <h2 style="text-transform: uppercase; letter-spacing: 0.15em; font-family: 'Barlow', sans-serif; font-size: 2rem; border-bottom: 1px solid #999; padding-bottom: 0.5rem;">Contact Sophie</h2>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2>Contact Sophie</h2>
 
-    <div style="margin-top: 2rem; line-height: 1.7; font-size: 1rem;">
-      <p>Ready to take the first step?</p>
-      <p>Contact Sophie today to schedule a free 15 minute consultation. This can happen either online or on the phone.</p>
-      <p>Sophie is here to listen, support, and guide you on your journey towards emotional well-being.</p>
+    <div class="contact-intro">
+      <p>Ready to take the first step?</p><br>
+      <p>Contact Sophie today to schedule a free 15-minute consultation – online or over the phone.</p><br>
+      <p>Sophie is here to listen, support, and guide you on your journey toward emotional well-being.</p>
     </div>
 
-    <div style="margin-top: 3rem;">
-      <p style="letter-spacing: 0.2em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem;">Phone</p>
-      <p style="margin-bottom: 1.5rem;"><strong>TBC</strong></p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <!-- Phone icon -->
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#91c4d8" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.01l-2.2 2.2z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="label">Phone</p>
+          <p><strong>TBC</strong></p>
+        </div>
+      </div>
 
-      <p style="letter-spacing: 0.2em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem;">Location</p>
-      <p>Online<br>Phone</p>
-      <p style="margin-bottom: 1.5rem;"><strong>Face-to-face appointments will soon be available</strong></p>
+      <div class="contact-item">
+        <!-- Location icon -->
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#f5c6d6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="label">Location</p>
+          <p>Online / Phone<br><strong>Face-to-face appointments will soon be available</strong></p>
+        </div>
+      </div>
 
-      <p style="letter-spacing: 0.2em; text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem;">E-mail</p>
-      <p><a href="mailto:info@sophiebungeycounselling.com">info@sophiebungeycounselling.com</a></p>
+      <div class="contact-item">
+        <!-- Email icon -->
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#d2d2f2" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4a2 2 0 00-2 2v1.6l10 6.4 10-6.4V6a2 2 0 00-2-2zm0 4.2l-8 5.1-8-5.1V18a2 2 0 002 2h12a2 2 0 002-2V8.2z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="label">Email</p>
+          <p><a href="mailto:info@sophiebungeycounselling.com" style="color: #91c4d8; text-decoration: underline; font-weight: 500;">info@sophiebungeycounselling.com</a></p>
+          <p style="font-size: 0.85rem; font-style: italic; color: #666; margin-top: 1rem;">
+  Emails are sent directly and not stored by this website. Your message will be handled confidentially.
+</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-button">
+      <a href="#contact" class="soft-button">Get in Touch</a>
     </div>
   </div>
 </section>

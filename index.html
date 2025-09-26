@@ -1,68 +1,741 @@
 <!DOCTYPE html>
-<html>
-<style>
-body {
-  height: 100%;
-  margin: 0;
-  background-color: #e2a2cc;
-}
-
-html {
-    height: 100%;
-    margin: 0;
-}
-
-.topleft {
-  position: absolute;
-  top: 0;
-  left: 16px;
-}
-
-.bottomleft {
-  position: absolute;
-  bottom: 0;
-  left: 16px;
-}
-
-.middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-hr {
-  margin: auto;
-  width: 40%;
-}
-
-.p1 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
-}
-</style>
+<html lang="en">
 <head>
-   <title>Sophie Bungey Counselling</title> 
-   <link rel="icon" type="image/x-icon" href="Sophie_Favicon_32.png" sizes="32x32">
-   <link rel="icon" type="image/x-icon" href="Sophie_Favicon_48.png" sizes="48x48">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sophie Bungey Counselling</title>
+<link rel="icon" type="image/png" href="assets/favicon-48.png">
 
+  <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Questrial&display=swap" rel="stylesheet">
+  <!-- ScrollReveal Library -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+ <style>
+
+  html, body {
+
+}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6, nav a {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    background: #fefcf8;
+    padding-top: 5px;
+    scroll-behavior: smooth;
+  }
+.sticky-nav {
+  background: pink;
+    flex-wrap: wrap;
+  /* overflow-x: hidden; */
+}
+  nav {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+.nav-logo {
+  height: 40px;
+  margin-right: 1rem;
+    opacity: 0;
+  transform: translateY(30px);
+  animation: logoFadeSlide 1.5s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes logoFadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+  nav.scrolled .nav-logo {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #444;
+    font-family: 'Barlow', sans-serif;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: #e59ca1;
+  }
+.burger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Nav container for links */
+.nav-links {
+  display: flex;
+  gap: 1.52rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  nav {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    position: sticky;
+  }
+}
+
+.nav-brand {
+  display: flex;
+  align-items: left;
+  gap: 0.05rem;
+    flex-shrink: 1;
+  min-width: 0;
+}
+
+.brand-name {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: #5caac5;
+  white-space: nowrap;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.3rem;
+    transform: translateY(2px); /* Adjust this as needed */
+    margin-left: -0.2rem;
+
+}
+
+@media (max-width: 768px) {
+  .nav-logo {
+    height: 30px;
+  }
+
+  .sticky-nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  .brand-name {
+    font-size: 1.02rem;
+    font-weight: 500;
+    margin-left: -0.2rem;
+        transform: translateY(7px); /* Adjust this as needed */
+
+  }
+
+}
+  .link-soft {
+  color: #e59ca1;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.link-soft:hover {
+  color: #5caac5;
+}
+section {
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+  padding: 2rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 2rem; /* Slightly less side padding on mobile */
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    margin-bottom: 6rem;
+    padding: 4rem 2rem;
+  }
+}
+
+
+.hero-background {
+  background: url('assets/pastel_background-long.png') no-repeat center top;
+  background-size: cover;
+  padding: 2rem -0.5rem;
+  width: 100%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+    padding: 0;
+}
+
+.hero-left img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero-right {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.hero-right .quote {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+.text-box {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(2px);
+   width: 100%;
+  max-width: 400px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hero {
+  padding: 0.5rem 2rem;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem; /* less padding */
+    gap: 1.5rem; /* smaller spacing between image/text */
+  }
+}
+  .hero-left {
+    margin-bottom: 1rem;
+  }
+
+  .hero-right {
+    font-size: 1rem;
+  }
+
+  .text-box {
+    padding: 1.25rem 1rem;
+  }
+/* Optional: prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+  .badge {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .badge img {
+    max-width: 150px;
+    height: auto;
+  }
+
+  #specialties {
+    background-color: #facfcd;
+    padding: 4rem 2rem;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .specialties-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .specialty h2 {
+    margin-bottom: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #000;
+    text-transform: uppercase;
+  }
+
+  .specialty h3 {
+    margin-bottom: 0.5rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #000;
+    font-weight:600;
+  }
+
+  .specialty p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Responsive: stack specialties on small screens */
+  @media (max-width: 768px) {
+    .specialties-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.soft-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #facfcd, #d2d2f2);
+  color: #444;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  font-family: 'Barlow', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.soft-button:hover {
+  background: linear-gradient(90deg, #f3bccc, #c5c5f0);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+.contact-section {
+  padding: 4rem 2rem;
+  background: #fefcf8;
+}
+
+.contact-section h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: 'Barlow', sans-serif;
+  font-size: 2rem;
+  border-bottom: 1px solid #999;
+  padding-bottom: 0.5rem;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.contact-intro {
+  text-align: left;
+  line-height: 1.7;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.icon svg {
+  min-width: 24px;
+  height: 24px;
+}
+
+.label {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-family: 'Barlow', sans-serif;
+  color: #444;
+}
+
+.contact-button {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+</style>
+
+</head>
 <body>
 
-<div class="bgimg">
-  <div class="middle">
-    <p><img src="sophie_logo.png"></p>
-    <hr>
-    <h1 class="p1">COMING SOON</h1>
-    
+<nav class="sticky-nav">
+  <div class="nav-brand">
+    <img src="assets/rainbow-logo.png" alt="Logo" class="nav-logo">
+    <span class="brand-name">Sophie Bungey <span style=" text-transform:uppercase; color: #e59ca1;">Counselling</span></span>
+  </div>
+  <button class="burger" style="color:#5caac5" aria-label="Menu">&#9776;</button>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#specialties">Specialties</a>
+    <a href="#about">About Counselling</a>
+    <a href="#qualifications">Qualifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero-background">
+  <section id="home" class="">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <img style="display:block; width:100%" src="assets/sophie.jpg" alt="Sophie Bungey">
+    </div>
+    <div class="hero-right">
+       <div class="text-box">
+      <p class="quote">
+        "Rarely, if ever, are any of us healed in isolation. <br>
+        Healing is an act of communion"<br>
+        – bell hooks, <em>All About Love</em>
+      </p>
+      <p>Sophie (she/her) is a fully qualified, body-positive, LGBTQIA+ inclusive, neurodivergent affirming counsellor.</p>
+     <br>
+      <p>Sophie offers a judgement and shame-free space for you to talk through your thoughts and feelings.</p>
+    </div>
+    </div>
+  </div>
+</section>
+</div>
+<section id="specialties">
+    <div class="container">
+  <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem">Specialties</h2>
+  <div class="specialties-grid">
+    <!-- <div class="specialty">
+      <h3>Online Counselling</h3>
+      <p>Sophie offers online individual counselling.</p>
+      <p>Sophie will be able to meet you online for 50 minute sessions. These are tailored to your specific needs and provide a safe space for self-exploration and growth.</p>
+    </div>
+    <div class="specialty">
+      <h3>Face to Face Counselling</h3>
+      <p>Sophie will soon be able to offer face to face sessions in a private, safe and comfortable space.</p>
+    </div> -->
+    <div class="specialty">
+      <h3>Creative Counselling</h3>
+      <p>Sophie will provide a space to use creativity in counselling, including art and music.</p>
+      <p>If you want to stim, sketch, or move during sessions, that is absolutely fine.</p>
+      <!-- <p>Sophie focuses on self-acceptance rather than conformity.</p> -->
+    </div>
+    <div class="specialty">
+      <h3>LGBTQIA+</h3>
+      <p>Sophie is an ally in the LGBTQIA+ community and will treat all people, no matter what their gender identity or sexuality, with kindness and compassion. Trans Lives Matter.</p>
+    </div>
+
+    <div class="specialty">
+      <h3>Body Positive</h3>
+      <p>Sophie is a body-positive therapist who accepts all body shapes, sizes, and appearances.</p>
+      <p>All bodies are worthy of care and respect no matter the size.</p>
+      <p>Sophie offers a shame-free environment where you can talk openly about body image issues, disordered eating, trauma related to body or appearance, and self-worth.</p>
+    </div>
+        <div class="specialty">
+      <h3>Neurodivergent Affirming</h3>
+      <p>Sophie respects, values, and supports neurodivergent people. 'Neurodivergent' is a term which describes people whose brains function differently from what is considered 'neurotypical'.</p>
+      <!-- <p>This can include autism, ADHD, dyslexia, dyspraxia, Tourette's and other cognitive and neurological variations.</p> -->
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<section id="about">
+  <div class="container">
+    <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem">About Counselling</h2>
+    <br>
+    <p>Counselling is a supportive, collaborative process where you can explore your thoughts, feelings, and experiences with a trained professional in a calm, confidential setting. It lasts as long as it’s helpful to you. There’s no fixed timeline, and you're in control.</p>
+<br>
+  <div class="specialties-grid">
+    <div class="speciality">
+    <h3 style="margin-top: 2.5rem;">What is counselling like with Sophie?</h3>
+    <ul style="margin-top: 1rem; padding-left: 1.5rem; line-height: 1.6;">
+      <li>Sophie offers a calm, non-judgemental space where you can be entirely yourself.</li>
+      <li>Sophie is a registered member of the <a href="https://www.bacp.co.uk" target="_blank" class="link-soft">British Association for Counselling and Psychotherapy (BACP)</a> and works within their ethical framework.</li>
+      <!-- <li>I meet regularly with a professional supervisor — a fellow therapist who helps me reflect on my work and ensure that I’m supporting you safely, thoughtfully, and with care.</li> -->
+      <li>Sophie's approach is thoughtful, relational, and grounded in trust. She won't rush or push you, but she will walk alongside you and explore whatever you bring.</li>
+    </ul>
+<br>
+    <p>Whether you're facing something specific, feeling overwhelmed, or simply want to understand yourself better, counselling can offer clarity, connection, and a sense of direction.</p>
+</div>
+<div class="speciality">
+    <h3 style="margin-top: 2.5rem;">Beginning the Counselling Journey</h3>
+    <p>Sophie understands how difficult it can be to start something new. This is why she offers a free 15-minute phone/ Zoom consultation.</p><br>
+    <p>Speaking to Sophie will give you the opportunity to explore your counselling needs, ask any questions about the process, and learn more about fees and policies.</p>
+
+    <h3 style="margin-top: 2.5rem;">Counselling Sessions</h3>
+    <p>If you decide you'd like to meet Sophie for counselling sessions, these will be held on a regular basis,typically weekly.</p><br>
+    <p>Right now, sessions are conducted online via Zoom.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="qualifications" style="background-color: #facfcd;">
+  <div class="container">
+    <h2 style="text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem">Sophie's Qualifications</h2>
+<br>
+    <div class="qualification-section" style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+      <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif;">
+        CPCAB QUALIFICATIONS
+      </div>
+      <div style="flex: 2;">
+        <p>Level 5 Diploma in Counselling Young People</p>
+        <p>Level 4 Diploma in Therapeutic Counselling</p>
+        <p>Level 3 Certificate in Counselling Studies</p>
+        <p>Level 2 Certificate in Counselling Skills</p>
+      </div>
+    </div>
+
+    <div class="qualification-section" style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+      <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif; text-transform: uppercase;">
+        Continued Professional Development (CPD)<br>
+        <!-- <span style="font-weight: normal; font-size: 0.95rem;">Continued Professional Development</span> -->
+      </div>
+      <div style="flex: 2;">
+        <p>Safeguarding and Suicide Prevention, June 2025</p>
+        <p>Breaking County Lines and Cuckooing, May 2025</p>
+        <p>Case Notes and Disclosures, February 2025</p>
+        <p>Working with Trauma, November 2024</p>
+        <p>Working with Neurodiverse Clients, July 2024</p>
+        <p>Vulnerability and Feedback, June 2024</p>
+        <p>Universal Safeguarding Children Online Training, October 2023</p>
+        <p>SPEAK: Suicide Prevention Training, May 2023</p>
+      </div>
+    </div>
+
+    <div class="qualification-section" style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+      <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif;">
+        COUNSELLING EXPERIENCE
+      </div>
+      <div style="flex: 2;">
+        <p>Sophie has over 200 hours of counselling experience – working with adults (age 18+) and young people (age 11 - 17), both online and face to face.</p>
+      </div>
+    </div>
+
+
+<div class="qualification-section" style="display: flex; gap: 2rem; align-items: center;">
+  <div style="flex: 1; font-weight: bold; font-family: 'Barlow', sans-serif;">
+    PROFESSIONAL MEMBERSHIP
+  </div>
+  <div style="flex: 2;">
+    <img src="assets/bacp.jpg" alt="BACP Badge" style="width: 150px; max-width: 100%; height: auto;">
   </div>
 </div>
+
+</div>  
+</section>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2>Contact Sophie</h2>
+
+    <div class="contact-intro">
+      <p>Ready to take the first step?</p><br>
+      <p>Contact Sophie today to schedule a free 15-minute consultation online or over the phone.</p><br>
+      <p>Sophie is here to listen, support, and guide you on your journey toward emotional well-being.</p>
+    </div>
+
+    <div class="contact-details">
+      <div class="contact-item">
+        <!-- Phone icon -->
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#91c4d8" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.01l-2.2 2.2z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="label">Phone</p>
+          <p><strong>07435 225 056</strong></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <!-- Location icon -->
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#facfcd" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="label">Location</p>
+          <p>Online / Phone<br><strong>Face-to-face appointments will soon be available</strong></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <!-- Email icon -->
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#d2d2f2" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4a2 2 0 00-2 2v1.6l10 6.4 10-6.4V6a2 2 0 00-2-2zm0 4.2l-8 5.1-8-5.1V18a2 2 0 002 2h12a2 2 0 002-2V8.2z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="label">Get in touch</p>
+          <!-- <p><a href="mailto:info@sophiebungeycounselling.com" style="color: #91c4d8; text-decoration: underline; font-weight: 500;">info@sophiebungeycounselling.com</a></p>
+          <p style="font-size: 0.85rem; font-style: italic; color: #666; margin-top: 1rem;">
+  Emails are sent directly and not stored by this website. Your message will be handled confidentially.
+</p> -->
+<div style="margin-top: 1rem;">
+  <form action="mailto:hello@sophie.care" method="POST" enctype="text/plain" style="display: grid; gap: 1rem;">
+
+    <label>
+      Your Name<br>
+      <input type="text" name="Name" required style="padding: 0.5rem; width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+    </label>
+
+    <label>
+      Your Email<br>
+      <input type="email" name="Email" required style="padding: 0.5rem; width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+    </label>
+
+    <label>
+      Message<br>
+      <textarea name="Message" rows="5" required style="padding: 0.5rem; width: 100%; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+    </label>
+
+    <button type="submit"  class="soft-button" style="padding: 0.75rem 1.5rem; background-color: #91c4d8; border: none; color: black; font-weight: bold; text-transform: uppercase; border-radius: 4px; cursor: pointer;">
+      Send Message
+    </button>
+  </form>
+
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;"><i>
+    By clicking 'Send Message', your email client will open and populate a message to Sophie. Your information is not stored or shared with any third parties.
+ </i> </p>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="contact-button">
+      <a href="#contact" class="soft-button">Get in Touch</a>
+    </div>
+  </div> -->
+</section>
+
+<footer style="background: #facfcd; padding: 1rem 0; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #eaeaea;">
+  <p>&copy; 2025 Sophie Bungey Counselling • All rights reserved</p>
+</footer>
+
+
+<script>
+  // Reveal animation
+  ScrollReveal().reveal('section', {
+    distance: '40px',
+    duration: 1000,
+    easing: 'ease-out',
+    origin: 'bottom',
+    interval: 200
+  });
+
+  // Smooth scroll with offset
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Sticky nav scroll behaviour
+  const stickyNav = document.querySelector('.sticky-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      stickyNav.classList.add('scrolled');
+    } else {
+      stickyNav.classList.remove('scrolled');
+    }
+  });
+
+// Burger menu toggle
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Close burger menu when a link is clicked (mobile UX)
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+</script>
+
 
 </body>
 </html>

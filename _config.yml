@@ -11,13 +11,13 @@ markdown: kramdown
 
 
 #blog settings
-permalink: /blog/:title/
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "default"
+# permalink: /blog/:title/
+# defaults:
+#   - scope:
+#       path: ""
+#       type: "posts"
+#     values:
+#       layout: "default"
 
 # plugins:
 #   - jekyll-seo-tag

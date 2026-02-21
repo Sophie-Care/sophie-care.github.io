@@ -1,3 +1,30 @@
 title: Sophie Bungey | LGBTQIA+, Body Positive and Neurodivergent Affirming Counsellor
 description: Sophie Bungey offers inclusive, neurodivergent-affirming counselling for teens, tweens and adults. Specialized in LGBTQIA+ support and body positivity. Book a free 15-min call.
+email: sophie.care@proton.me
 #remote_theme: jekyll/minima # Or leave blank if using your own CSS
+url: "https://sophie.care"
+baseurl: ""
+
+#build settings
+markdown: kramdown
+theme:
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+#blog settings
+permalink: /blog/:title/
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
+
+plugins:
+  - jekyll-seo-tag

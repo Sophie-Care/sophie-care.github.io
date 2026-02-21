@@ -436,16 +436,16 @@ body {
 
 <nav class="sticky-nav">
   <div class="nav-brand">
-    <img src="assets/rainbow-logo.png" alt="Logo" class="nav-logo">
+    <img src="{{'/assets/rainbow-logo.png' | relative_url}}" alt="Logo" class="nav-logo">
     <span class="brand-name">Sophie Bungey <span style=" text-transform:uppercase; color: #e59ca1;">Counselling</span></span>
   </div>
   <button class="burger" style="color:#5caac5" aria-label="Menu">&#9776;</button>
   <div class="nav-links">
-    <a href="index.html#home">Home</a>
-    <a href="index.html#specialties">Specialties</a>
-    <a href="index.html#about">About Counselling</a>
-    <a href="index.html#qualifications">Qualifications</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="{{'/index.html#home | relative_url}}'">Home</a>
+    <a href="{{'/index.html#specialties' | relative_url}}">Specialties</a>
+    <a href="{{'/index.html#about' | relative_url}}">About Counselling</a>
+    <a href="{{'/index.html#qualifications' | relative_url}}">Qualifications</a>
+    <a href="{{'/index.html#contact' | relative_url}}">Contact</a>
   </div>
 </nav>
 

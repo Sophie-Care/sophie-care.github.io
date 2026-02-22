@@ -2,6 +2,7 @@
 layout: post
 title: "What to Expect: Neurodivergent Affirming Counselling"
 description: "An introduction to how I work and what a first session looks like."
+excerpt: "Sophie explores what a first session looks like"
 ---
 
 <div class="hero-background" style="padding: 2rem 0;">

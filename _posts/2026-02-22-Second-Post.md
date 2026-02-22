@@ -18,7 +18,7 @@ description: "An introduction to how I work and what a first session looks like.
   </div>
 </div>
 
-<div class="post-body" style="max-width: 800px; margin: 4rem auto; padding: 0 1rem; line-height: 1.8;">
+<div class="post-body" style="max-width: 800px; margin: 4rem auto; padding: 0 1rem; line-height: 1.8;" markdown="1">
 
 ## Introduction
 Welcome to my blog. If you are reading this, you might be considering therapy but feeling a little nervous about what the process actually looks like—especially if you've had negative experiences in the past.

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Test Blog Post"
 excerpt_separator: <!--more-->
 ---
